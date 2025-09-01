@@ -55,7 +55,7 @@ export const UI = () => {
   // 使用useEffect监听页码变化，播放翻页音效
   useEffect(() => {
     // 创建音频对象，加载翻页音效文件
-    const audio = new Audio("/audios/page-flip-01a.mp3");
+    const audio = new Audio(`${import.meta.env.BASE_URL}/audios/page-flip-01a.mp3`);
     // 播放音效
     audio.play();
   }, [page]); // 依赖数组：当page变化时重新执行
