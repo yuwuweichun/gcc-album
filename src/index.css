@@ -1,18 +1,28 @@
+/* 导入Google Fonts字体 - Poppins字体族，支持100-900的字重范围 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+/* Tailwind CSS基础样式导入 */
+@tailwind base;      /* 基础样式重置和默认样式 */
+@tailwind components; /* 组件样式 */
+@tailwind utilities;  /* 工具类样式 */
+
+/* 根容器样式 - 设置整个应用的尺寸和背景 */
 #root {
-  width: 100vw;
-  height: 100vh;
+  width: 100vw;   /* 宽度：100%视口宽度 */
+  height: 100vh;  /* 高度：100%视口高度 */
+  /* 背景：径向渐变，从中心#5a47ce(紫色)向外扩散到#232323(深灰色) */
+  /* 80%表示渐变在80%位置开始向深灰色过渡 */
   background: radial-gradient(#5a47ce, #232323 80%);
 }
 
+/* 全局body样式重置 */
 body {
-  margin: 0;
+  margin: 0;  /* 移除默认外边距，确保全屏显示 */
 }
 
+/* 自定义轮廓文字样式类 */
 .outline-text {
+  /* 使用-webkit-text-stroke创建文字轮廓效果 */
+  /* 1px white：1像素宽的白色轮廓 */
   -webkit-text-stroke: 1px white;
 }
