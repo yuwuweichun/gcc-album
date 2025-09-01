@@ -133,25 +133,24 @@ const pageMaterials = [
 // ==================== 预加载纹理 ====================
 // 遍历所有页面，预加载纹理以提高性能
 pages.forEach((page) => {
-  // 预加载前面纹理
-  useTexture.preload(`/textures/${page.front}.jpg`);
-  // 预加载背面纹理
-  useTexture.preload(`/textures/${page.back}.jpg`);
-  // 预加载粗糙度贴图(用于封面)
-  useTexture.preload(`/textures/gcc-cover-roughness.jpg`);
+  // 预加载前面纹理 - 使用BASE_URL
+  useTexture.preload(`${import.meta.env.BASE_URL}textures/${page.front}.jpg`);
+  // 预加载背面纹理 - 使用BASE_URL
+  useTexture.preload(`${import.meta.env.BASE_URL}textures/${page.back}.jpg`);
+  // 预加载粗糙度贴图(用于封面) - 使用BASE_URL
+  useTexture.preload(`${import.meta.env.BASE_URL}textures/gcc-cover-roughness.jpg`);
 });
 
 // ==================== 单页组件 ====================
 // Page组件：表示书中的一页，包含完整的翻页动画逻辑
 const Page = ({ number, front, back, page, opened, bookClosed, ...props }) => {
-  // 使用useTexture加载纹理
-  // 根据是否是封面/封底决定是否加载粗糙度贴图
+  // 使用useTexture加载纹理 - 使用BASE_URL
   const [picture, picture2, pictureRoughness] = useTexture([
-    `/textures/${front}.jpg`,  // 前面纹理
-    `/textures/${back}.jpg`,   // 背面纹理
+    `${import.meta.env.BASE_URL}textures/${front}.jpg`,  // 前面纹理
+    `${import.meta.env.BASE_URL}textures/${back}.jpg`,   // 背面纹理
     // 只有封面(第0页)和封底(最后一页)才加载粗糙度贴图
     ...(number === 0 || number === pages.length - 1
-      ? [`/textures/gcc-cover-roughness.jpg`]
+      ? [`${import.meta.env.BASE_URL}textures/gcc-cover-roughness.jpg`]
       : []),
   ]);
   

@@ -71,8 +71,8 @@ export const UI = () => {
           className="pointer-events-auto mt-10 ml-10"  // 启用指针事件，设置位置
           href="https://github.com/yuwuweichun"        // 链接到GitHub个人主页
         >
-          {/* GCC Logo图片 */}
-          <img className="w-20" src="/images/logo-gcc.jpg" alt="GCC Logo" />
+          {/* GCC Logo图片 - 使用BASE_URL */}
+          <img className="w-20" src={`${import.meta.env.BASE_URL}images/logo-gcc.jpg`} alt="GCC Logo" />
         </a>
 
         {/* 底部页面导航区域 */}
